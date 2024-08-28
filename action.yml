@@ -20,13 +20,16 @@ runs:
       id: my_step
       env:
         NAME: ${{ inputs.name }}
+      shell: bash
       run: |
         echo "Hello $NAME!"
 
     - name: Count length of the name
       id: length_calculation
+      shell: bash
       run: |
         name=${{ inputs.name }}
         length=${#name}
         echo "name_length=$length" >> $GITHUB_OUTPUT
+    
         
